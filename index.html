@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#14213d">
+  <meta name="description" content="CA Final Financial Reporting study planner with persistent progress and revision tracking.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <title>FR Command Centre</title>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand"><div class="brand-icon">FR</div><div><p class="eyebrow">CA FINAL · 2026</p><h1>FR Command Centre</h1><p class="muted">Your plan to finish by 30 November</p></div></div>
+    <div class="deadline"><span>DEADLINE</span><strong>30 Nov 2026</strong></div>
+  </header>
+  <main>
+    <section class="summary card">
+      <div class="summary-top"><div><p class="eyebrow">SYLLABUS PROGRESS</p><div class="big"><span id="percent">0</span><small>%</small></div></div><div class="stat"><strong id="doneCount">0/51</strong><span>study days completed</span></div></div>
+      <div class="progress"><div id="progressFill"></div></div>
+      <p class="muted" id="nextTask">Next target loading…</p>
+    </section>
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab active" data-tab="plan">Study plan</button>
+      <button class="tab" data-tab="revision">Revision log</button>
+      <button class="tab" data-tab="backup">Backup</button>
+    </nav>
+    <section id="plan" class="pane active">
+      <div class="section-head"><h2>Daily targets</h2><p class="muted">Tick a day after studying and solving questions.</p></div>
+      <div id="weeks"></div>
+    </section>
+    <section id="revision" class="pane">
+      <div class="card">
+        <h2>Daily revision checklist</h2>
+        <p class="muted">These checks reset each day; your notes remain saved.</p>
+        <div id="revisionChecks" class="checks"></div>
+        <label class="field-label" for="hours">Focused study target <strong><span id="hoursValue">4</span> hours</strong></label>
+        <input id="hours" type="range" min="1" max="8" value="4">
+        <label class="field-label" for="notes">Weak topics / error log</label>
+        <textarea id="notes" rows="6" placeholder="Record mistakes, formulas and topics to revisit…"></textarea>
+        <p class="muted tiny">Revision checklist date: <span id="revisionDate"></span></p>
+      </div>
+    </section>
+    <section id="backup" class="pane">
+      <div class="card">
+        <h2>Keep your progress safe</h2>
+        <p>Your progress is saved on this device/browser. Export a backup before clearing browser data or changing phones.</p>
+        <button id="exportBtn" class="primary">Export backup file</button>
+        <label class="field-label" for="importFile">Restore a previous backup</label>
+        <input id="importFile" type="file" accept="application/json">
+        <button id="resetBtn" class="danger">Reset all progress</button>
+        <p id="backupMessage" class="muted" role="status"></p>
+      </div>
+      <div class="card">
+        <h2>Install on Android</h2>
+        <ol>
+          <li>Deploy this folder to a secure HTTPS website (instructions in README).</li>
+          <li>Open the website in Chrome on your Android phone.</li>
+          <li>Tap <b>⋮ → Install app</b> or <b>Add to Home screen</b>.</li>
+        </ol>
+        <button id="installBtn" class="primary hidden">Install app</button>
+        <p class="muted tiny">The install button appears when your browser supports the install prompt. Otherwise use Chrome’s menu.</p>
+      </div>
+    </section>
+  </main>
+  <footer>Built for steady progress. Your data stays in this browser unless you export it.</footer>
+  <script src="./app.js"></script>
+</body>
+</html>
